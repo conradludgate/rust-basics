@@ -1,0 +1,13 @@
+[workspace]
+
+members = [
+    "01-hello-world",
+    "02-variables",
+    "03-strings",
+    "04-arrays",
+    "05-functions",
+    "06-control-flow",
+    "07-modules",
+    "08-types",
+    "09-traits",
+]
