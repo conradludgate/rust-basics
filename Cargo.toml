@@ -8,8 +8,9 @@ members = [
     "05-functions",
     "06-ownership",
     "07-control-flow",
-    "08-modules",
-    "09-types",
-    "10-traits",
-    "11-iterators",
+    "08-errors",
+    "09-modules",
+    "10-types",
+    "11-traits",
+    "12-iterators",
 ]
