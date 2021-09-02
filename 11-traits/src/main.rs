@@ -17,7 +17,11 @@ struct Measure<Number, Unit>(Number, Unit);
 // implement a pretty-printing trait for measure,
 // assuming that the generic parameters `N` and `T` both can be pretty-printed
 // (using the `Display` trait)
-impl<N: fmt::Display, T: fmt::Display> fmt::Display for Measure<N, T> {
+impl<N, T> fmt::Display for Measure<N, T>
+where
+    N: fmt::Display,
+    T: fmt::Display,
+{
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         write!(f, "{}{}", self.0, self.1)
     }
@@ -52,7 +56,11 @@ impl Div<SecondUnit> for MeterUnit {
 }
 
 // implement a 'divide' trait for Measure<N, T> / Measure<M, U> only when N can be divided by M and T can be divided by U
-impl<N, M, T, U> Div<Measure<M, U>> for Measure<N, T> where N: Div<M>, T: Div<U> {
+impl<N, M, T, U> Div<Measure<M, U>> for Measure<N, T>
+where
+    N: Div<M>,
+    T: Div<U>,
+{
     type Output = Measure<N::Output, T::Output>;
 
     fn div(self, rhs: Measure<M, U>) -> Self::Output {
